@@ -1,5 +1,6 @@
 define autofs::mount (
   $map,
+  $ensure     = present,
   $mountpoint = $title,
   $options    = undef,
   $mapfile    = undef
@@ -18,6 +19,7 @@ define autofs::mount (
   }
 
   concat::fragment { "autofs::mount ${path}:${mountpoint}":
+    ensure  => $ensure,
     target  => $path,
     content => "$mountpoint $map $options\n",
     order   => '100',
