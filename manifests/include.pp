@@ -1,5 +1,4 @@
 define autofs::include (
-  $include = $title,
   $map     = $title,
   $mapfile = undef
 ) {
