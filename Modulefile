@@ -1,5 +1,5 @@
-name 'pdxcat-module-autofs'
-version '1.0.1'
+name 'pdxcat-autofs'
+version '1.0.2'
 source 'https://github.com/pdxcat/puppet-module-autofs'
 author 'Reid Vandewiele'
 license 'Apache License 2.0'
