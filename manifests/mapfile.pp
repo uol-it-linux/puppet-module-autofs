@@ -16,7 +16,7 @@ define autofs::mapfile (
       ensure  => present,
       target  => $path,
       content => "# File managed by puppet, do not edit\n",
-      order   => '1',
+      order   => '01',
     }
   }
 
