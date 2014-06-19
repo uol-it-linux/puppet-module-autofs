@@ -5,7 +5,7 @@ class autofs::params {
       $group      = 'root'
       $master     = '/etc/auto.master'
       $owner      = 'root'
-      $package    = [ 'autofs', 'autofs-ldap' ]
+      $package    = [ 'autofs-ldap' ]
       $service    = 'autofs'
     }
     'Solaris': {
