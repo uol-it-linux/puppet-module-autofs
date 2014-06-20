@@ -11,10 +11,8 @@ define autofs::mount (
   if $mapfile != undef {
     validate_absolute_path($mapfile)
     $path = $mapfile
-    $content = "${mountpoint} ${options} ${map}\n"
   } else {
     $path = $autofs::params::master
-    $content = "${mountpoint} ${map} ${options}\n"
   }
 
   autofs::mapfile { "autofs::mount ${title}":
@@ -24,7 +22,7 @@ define autofs::mount (
   concat::fragment { "autofs::mount ${path}:${mountpoint}":
     ensure  => $ensure,
     target  => $path,
-    content => $content,
+    content => "${mountpoint} ${map} ${options}\n",
     order   => '100',
   }
 
