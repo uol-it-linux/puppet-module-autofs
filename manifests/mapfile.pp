@@ -12,7 +12,7 @@ define autofs::mapfile (
       notify => Service[$autofs::params::service],
     }
 
-    concat::fragment { "autofs::fragment preamble $path":
+    concat::fragment { "autofs::fragment preamble ${path}":
       ensure  => present,
       target  => $path,
       content => "# File managed by puppet, do not edit\n",
