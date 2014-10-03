@@ -2,7 +2,6 @@ define autofs::mapfile (
   $path
 ) {
   include autofs::params
-  include concat::setup
 
   if !defined(Concat[$path]) {
     concat { $path:
