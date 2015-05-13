@@ -1,3 +1,5 @@
+# == Define: autofs::params
+
 class autofs::params {
 
   case $::osfamily {

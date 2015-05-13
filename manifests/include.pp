@@ -1,3 +1,5 @@
+# == Define: autofs::include
+
 define autofs::include (
   $map     = $title,
   $mapfile = undef

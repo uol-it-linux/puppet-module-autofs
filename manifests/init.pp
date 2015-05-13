@@ -1,3 +1,5 @@
+# == Define: autofs
+
 class autofs {
   include autofs::params
 
