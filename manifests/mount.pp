@@ -21,8 +21,14 @@ define autofs::mount (
     path => $path
   }
 
-  concat::fragment { "autofs::mount ${path}:${mountpoint}":
+  concat { $path:
     ensure  => $ensure,
+    owner  => $autofs::params::owner,
+    group  => $autofs::params::group,
+    mode  => '0644'
+  }
+
+  concat::fragment { "autofs::mount ${path}:${mountpoint}":
     target  => $path,
     content => $content,
     order   => '100',
