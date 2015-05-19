@@ -1,3 +1,5 @@
+# == Define: autofs::mount
+
 define autofs::mount (
   $map,
   $ensure     = present,
@@ -21,8 +23,14 @@ define autofs::mount (
     path => $path
   }
 
+  concat { $path:
+    ensure => $ensure,
+    owner  => $autofs::params::owner,
+    group  => $autofs::params::group,
+    mode   => '0644'
+  }
+
   concat::fragment { "autofs::mount ${path}:${mountpoint}":
-    ensure  => $ensure,
     target  => $path,
     content => $content,
     order   => '100',

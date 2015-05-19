@@ -1,3 +1,5 @@
+# == Define: autofs::mapfile
+
 define autofs::mapfile (
   $path
 ) {

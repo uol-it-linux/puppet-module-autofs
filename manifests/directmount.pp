@@ -1,3 +1,5 @@
+#== Define: autofs::directmount
+
 define autofs::directmount (
   $location,
   $ensure     = 'present',
@@ -19,8 +21,14 @@ define autofs::directmount (
     path => $path
   }
 
+  concat { $path:
+    ensure => $ensure,
+    owner  => $autofs::params::owner,
+    group  => $autofs::params::group,
+    mode   => '0644'
+  }
+
   concat::fragment { "autofs::mount ${path}:${mountpoint}":
-    ensure  => $ensure,
     target  => $path,
     content => "${mountpoint} ${options} ${location}\n",
     order   => '100',
