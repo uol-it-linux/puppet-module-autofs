@@ -74,7 +74,7 @@
   "source": "https://github.com/pdxcat/puppet-module-autofs",
   "author": "Reid Vandewiele",
   "license": "Apache-2.0",
-  "summary": "Puppet module for Collectd",
+  "summary": "Puppet module for Autofs",
   "project_page": "https://github.com/pdxcat/puppet-module-autofs",
   "dependencies": [
     {

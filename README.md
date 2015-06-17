@@ -1,6 +1,6 @@
 # Autofs module for Puppet
 
-[![Build Status](https://travis-ci.org/pdxcat/puppet-module-autofs.svg?branch=master)](https://travis-ci.org/pdxcat/puppet-module-autofs)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/pdxcat/autofs.svg)](https://forge.puppetlabs.com/pdxcat/autofs) [![Build Status](https://travis-ci.org/pdxcat/puppet-module-autofs.png?branch=master)](https://travis-ci.org/pdxcat/puppet-module-autofs)
 
 ## Description
 Puppet module for managing Autofs mountpoints and files.
