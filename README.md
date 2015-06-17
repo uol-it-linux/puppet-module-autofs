@@ -1,5 +1,7 @@
 # Autofs module for Puppet
 
+[![Build Status](https://travis-ci.org/pdxcat/puppet-module-autofs.svg?branch=master)](https://travis-ci.org/pdxcat/puppet-module-autofs)
+
 ## Description
 Puppet module for managing Autofs mountpoints and files.
 
