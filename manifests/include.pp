@@ -2,26 +2,23 @@
 
 define autofs::include (
   $map     = $title,
-  $mapfile = undef
+  $mapfile = undef,
+  $order   = '200',
 ) {
   include autofs
   include autofs::params
 
   if $mapfile != undef {
     validate_absolute_path($mapfile)
-    $path = $mapfile
+    $mapfile_real = $mapfile
   } else {
-    $path = $autofs::params::master
+    $mapfile_real = $autofs::params::master
   }
 
-  autofs::mapfile { "autofs::include ${title}":
-    path => $path
-  }
-
-  concat::fragment { "autofs::include ${title}":
-    target  => $path,
+  autofs::mapfile::line { "autofs::include ${title}":
+    mapfile => $mapfile_real,
     content => "+${map}\n",
-    order   => '200',
+    order   => $order,
   }
 
 }
