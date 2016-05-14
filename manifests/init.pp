@@ -7,9 +7,10 @@ class autofs {
   }
 
   service { $autofs::params::service:
-    ensure  => running,
-    enable  => true,
-    require => Package[$autofs::params::package],
+    ensure   => running,
+    enable   => true,
+    provider => $::autofs::params::service_provider,
+    require  => Package[$autofs::params::package],
   }
 
 }
