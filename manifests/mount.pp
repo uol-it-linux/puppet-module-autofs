@@ -13,17 +13,20 @@ define autofs::mount (
 
   if $mapfile != undef {
     validate_absolute_path($mapfile)
-    $mapfile_real = $mapfile
-    $content = "${mountpoint} ${options} ${map}\n"
+    $path = $mapfile
   } else {
-    $mapfile_real = $autofs::params::master
-    $content = "${mountpoint} ${map} ${options}\n"
+    $path = $autofs::params::master
   }
 
-  autofs::mapfile::line { "autofs::mount ${mapfile_real}:${mountpoint}":
-    mapfile => $mapfile_real,
-    content => $content,
-    order   => $order,
+  autofs::mapfile { "autofs::mount ${title}":
+    path => $path
+  }
+
+  concat::fragment { "autofs::mount ${path}:${mountpoint}":
+    ensure  => $ensure,
+    target  => $path,
+    content => "${mountpoint} ${map} ${options}\n",
+    order   => '100',
   }
 
 }
