@@ -23,7 +23,7 @@ class autofs::params {
       $package    = [] # solaris has it built-in, no package required
       $service    = 'autofs'
       $service_provider = undef
-    p}
+    }
     'RedHat': {
       $group      = 'root'
       $master     = '/etc/auto.master'
